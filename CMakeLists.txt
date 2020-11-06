@@ -44,7 +44,7 @@ find_package(Bluez REQUIRED)
 include_directories(${PROJECT_SOURCE_DIR} ${BLUEZ_INCLUDE_DIRS})
 add_library(${PROJECT_NAME} SHARED ${SRC})
 set_target_properties(${PROJECT_NAME} PROPERTIES SOVERSION 5)
-target_link_libraries(${PROJECT_NAME} ${BLUEZ_LIBRARIES} "bluetooth")
+target_link_libraries(${PROJECT_NAME} ${BLUEZ_LIBRARIES} "bluetooth" pthread)
 
 foreach (example_src ${EXAMPLES})
     get_filename_component(example_name ${example_src} NAME_WE)
